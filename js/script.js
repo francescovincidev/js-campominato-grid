@@ -1,16 +1,23 @@
+// DICHIARAZIONI
 const playBtn = document.querySelector("div button");
 let box = document.querySelector(".box");
 let squareDimension = document.getElementsByClassName("square");
 let arrayDimension;
 let arrayNumbers = [];
 
+// EVENTI AL CLICK
 playBtn.addEventListener("click", function () {
+    //  prende il valore della difficoltà
     const difficulty = document.getElementById("difficulty").value;
-    if (difficulty === "difficile") {
-        arrayDimension = 100;
 
+    // SE difficile
+    if (difficulty === "difficile") {
+
+        // creare un array con 100 numeri in ordine
+        arrayDimension = 100;
         arrayNumbers = gridDimension(arrayDimension);
 
+        // creazione della tabella
         for(i=0; i < arrayNumbers.length; i++){
             let newsquare = gridCreation(arrayNumbers[i]);
             box.append(newsquare);
@@ -22,9 +29,12 @@ playBtn.addEventListener("click", function () {
         
         
     } else if( difficulty === "medio"){
+
+        // creare un array con 81 numeri in ordine
         arrayDimension = 81;
         arrayNumbers = gridDimension(arrayDimension);
 
+        // creazione della tabella
         for(i=0; i < arrayNumbers.length; i++){
             let newsquare = gridCreation(arrayNumbers[i]);
             box.append(newsquare);
@@ -35,9 +45,11 @@ playBtn.addEventListener("click", function () {
 
         
     } else{ 
+        // creare un array con 49 numeri in ordine
         arrayDimension = 49;
-
         arrayNumbers = gridDimension(arrayDimension);
+
+        // creazione della tabella
 
         for(i=0; i < arrayNumbers.length; i++){
             let newsquare = gridCreation(arrayNumbers[i]);
@@ -71,7 +83,12 @@ function gridDimension(gridNumber) {
     return arrayNumbers;   
 }
 
-
+// creazione div con classe square e contenuto da input
+/**
+ * Description
+ * @param {text} text
+ * @returns {text}
+ */
 function gridCreation(text) {
     let newSquare = document.createElement("div");
     newSquare.classList.add("square");
@@ -79,6 +96,11 @@ function gridCreation(text) {
     return newSquare;
 }
 
+// aggiungere classe blue al all'elemento che selezioniamo
+/**
+ * Description
+ * @returns {any}
+ */
 function backgroundBlue() {
     this.classList.add("blue");
 

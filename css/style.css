@@ -9,6 +9,24 @@ body{
     background-color: aquamarine;
 }
 
+header{
+    height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+
+}
+
+header div{
+    align-self: center;
+}
+
+button{
+    padding: 3px 5px;
+}
+
 .square{
     border: 1px solid  black;
     display: flex;
@@ -35,7 +53,7 @@ body{
 }
 
 .box{
-    margin: 0 auto;
+    margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
     width: 800px;
