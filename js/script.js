@@ -7,60 +7,42 @@ let arrayNumbers = [];
 
 // EVENTI AL CLICK
 playBtn.addEventListener("click", function () {
+    
+    // reset griglia
+    arrayNumbers = [];
+    box.innerHTML = "";
+
     //  prende il valore della difficoltà
     const difficulty = document.getElementById("difficulty").value;
-
+    
     // SE difficile
     if (difficulty === "difficile") {
 
-        // creare un array con 100 numeri in ordine
-        arrayDimension = 100;
-        arrayNumbers = gridDimension(arrayDimension);
 
-        // creazione della tabella
-        for(i=0; i < arrayNumbers.length; i++){
-            let newsquare = gridCreation(arrayNumbers[i]);
-            box.append(newsquare);
-            squareDimension[i].classList.add("s-100");
-            squareDimension[i].addEventListener("click", backgroundBlue);
-       }
-        
-        
-        
-        
+        // diamo 100 alla dimensione dall'array
+        arrayDimension = 100;
+
     } else if( difficulty === "medio"){
 
-        // creare un array con 81 numeri in ordine
+        // diamo 81 alla dimensione dall'array
         arrayDimension = 81;
-        arrayNumbers = gridDimension(arrayDimension);
-
-        // creazione della tabella
-        for(i=0; i < arrayNumbers.length; i++){
-            let newsquare = gridCreation(arrayNumbers[i]);
-            box.append(newsquare);
-            squareDimension[i].classList.add("s-81");
-            squareDimension[i].addEventListener("click", backgroundBlue);
-
-       }
-
         
     } else{ 
-        // creare un array con 49 numeri in ordine
+
+        // diamo 49 alla dimensione dall'array
         arrayDimension = 49;
-        arrayNumbers = gridDimension(arrayDimension);
-
-        // creazione della tabella
-
-        for(i=0; i < arrayNumbers.length; i++){
-            let newsquare = gridCreation(arrayNumbers[i]);
-            box.append(newsquare);
-            squareDimension[i].classList.add("s-49");
-            squareDimension[i].addEventListener("click", backgroundBlue);
-
-       }
-
         
     }
+
+    arrayNumbers = gridDimension(arrayDimension);
+
+    // creazione della tabella
+    for(let i=0; i < arrayNumbers.length; i++){
+        let newsquare = gridCreation(arrayNumbers[i]);
+        box.append(newsquare);
+        squareDimension[i].classList.add(`s-${arrayDimension}`);
+        squareDimension[i].addEventListener("click", backgroundBlue);
+   }
     
 
 })
@@ -103,5 +85,7 @@ function gridCreation(text) {
  */
 function backgroundBlue() {
     this.classList.add("blue");
+    const clickedNumber = parseInt(this.textContent);
+    console.log(clickedNumber);
 
 }
